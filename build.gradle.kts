@@ -21,6 +21,7 @@ dependencies {
 intellij {
     version.set("2021.3")
     type.set("IU")
+    plugins.set(listOf("com.jetbrains.php:213.5744.279"))
 }
 tasks {
     patchPluginXml {
