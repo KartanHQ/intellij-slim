@@ -31,6 +31,10 @@ intellij {
 
 tasks {
     patchPluginXml {
+        version.set(properties("pluginVersion"))
+        sinceBuild.set(properties("pluginSinceBuild"))
+        untilBuild.set(properties("pluginUntilBuild"))
+
         changeNotes.set("""
             Add change notes here.<br>
             <em>most HTML tags may be used</em>        """.trimIndent())
