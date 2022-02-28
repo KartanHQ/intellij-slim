@@ -1,9 +1,14 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 fun properties(key: String) = project.findProperty(key).toString()
 
 plugins {
-    id("org.jetbrains.intellij") version "1.4.0"
-    kotlin("jvm") version "1.6.20-RC"
-    java
+    // Java support
+    id("java")
+    // Kotlin support
+    id("org.jetbrains.kotlin.jvm") version "1.6.10"
+    // Gradle IntelliJ Plugin
+    id("org.jetbrains.intellij") version "1.3.1"
 }
 
 group = properties("pluginGroup")
@@ -30,6 +35,17 @@ intellij {
 }
 
 tasks {
+    // Set the JVM compatibility versions
+    properties("javaVersion").let {
+        withType<JavaCompile> {
+            sourceCompatibility = it
+            targetCompatibility = it
+        }
+        withType<KotlinCompile> {
+            kotlinOptions.jvmTarget = it
+        }
+    }
+
     patchPluginXml {
         version.set(properties("pluginVersion"))
         sinceBuild.set(properties("pluginSinceBuild"))
