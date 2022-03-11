@@ -9,7 +9,8 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
+        <directoryProjectGenerator implementation="com.nekofar.milad.intellij.slim.SlimProjectGenerator" />
+        <projectTemplatesFactory implementation="com.nekofar.milad.intellij.slim.SlimProjectTemplatesFactory" />
     </extensions>
 
     <actions>
