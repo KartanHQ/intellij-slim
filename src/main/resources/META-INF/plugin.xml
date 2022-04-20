@@ -11,6 +11,8 @@
     <extensions defaultExtensionNs="com.intellij">
         <directoryProjectGenerator implementation="com.nekofar.milad.intellij.slim.SlimProjectGenerator" />
         <projectTemplatesFactory implementation="com.nekofar.milad.intellij.slim.SlimProjectTemplatesFactory" />
+
+        <errorHandler implementation="com.nekofar.milad.intellij.slim.diagnostic.SlimErrorReportSubmitter"/>
     </extensions>
 
     <actions>
