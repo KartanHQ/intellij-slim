@@ -38,7 +38,7 @@ jobs:
           config: .github/changelog/cliff.toml
           args: --verbose
         env:
-          OUTPUT: CHANGELOG.md
+          GIT_CLIFF_OUTPUT: CHANGELOG.md
           GIT_CLIFF_TAG: "${{ steps.properties.outputs.version }}"
 
       # Print the changelog
@@ -47,17 +47,18 @@ jobs:
 
       # Create pull request
       - name: Create Pull Request
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config user.name 'Milad Nekofar'
-          git config user.email 'nekofar@users.noreply.github.com'
-          git checkout -B update-changelog-`date +%s`
-          git commit -am "docs(changelog): update the changelog file" -m "[skip ci]"
-          gh pr create \
-            --title "docs(changelog): update the changelog file" \
-            --body "Current pull request contains patched `CHANGELOG.md` file." \
-            --label documentation
+        uses: peter-evans/create-pull-request@v4.0.4
+        with:
+          add-paths: CHANGELOG.md
+          delete-branch: true
+          branch-suffix: short-commit-hash
+          commit-message: |
+            docs(changelog): update the changelog file
+            
+            [skip ci]
+          title: "docs(changelog): update the changelog file"
+          body: "Current pull request contains patched `CHANGELOG.md` file."
+          labels: documentation
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
