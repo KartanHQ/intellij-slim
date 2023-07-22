@@ -4,5 +4,5 @@ import com.intellij.openapi.util.IconLoader
 
 object SlimIcons {
     @JvmField
-    val ProjectGenerator = IconLoader.getIcon("/icons/logoIcon.svg", javaClass)
+    val ProjectGenerator = IconLoader.getIcon("/icons/slim.svg", javaClass)
 }
