@@ -9,9 +9,11 @@
 
 
 <!-- Plugin description -->
-Provides boilerplate codes for easier new project creation using [Slim Framework](https://www.slimframework.com/) skeleton application.
+[Slim](https://www.slimframework.com/), a PHP micro framework, facilitates the swift development of robust web applications and APIs.
 
-Speed up the setup phase of application development for both new and experienced developers.
+This plugin offers boilerplate codes, making the initiation of new projects seamless through the use of a skeleton application.
+
+Both novice and seasoned developers can expedite the setup phase of application development with Slim.
 <!-- Plugin description end -->
 
 ## Installation
