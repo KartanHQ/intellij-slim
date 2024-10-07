@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+## [1.2.1] - 2024-10-07
+
+### Bug Fixes
+
+- Solve some minor issues and update dependencies
+
+## [1.2.0] - 2024-10-07
+
+### Features
+
+- Add lazy message retrieval method
+
 ## [1.1.29] - 2024-10-05
 
 ### Bug Fixes
